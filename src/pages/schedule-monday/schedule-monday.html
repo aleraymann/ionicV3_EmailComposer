@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ScheduleMondayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Segunda-Feira</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let c of Class; let i=index " text-wrap (click)="toggleGroup(i)"
+      [ngClass]="{active: isGroupShown(i)}">
+      <ion-item *ngIf="c.day == 'monday'">
+        <h2>
+          {{ c.hour }}
+          <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'">
+          </ion-icon>
+        </h2>
+        <div *ngIf="isGroupShown(i)">
+          <ion-label> 1 - {{c.p1}} </ion-label>
+        </div>
+        <div *ngIf="isGroupShown(i)">
+          <ion-label> 2 - {{c.p2}} </ion-label>
+        </div>
+        <div *ngIf="isGroupShown(i)">
+          <ion-label> 3 - {{c.p3}} </ion-label>
+        </div>
+        <div *ngIf="isGroupShown(i)">
+          <ion-label> 4 - {{c.p4}} </ion-label>
+        </div>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="light" (click)="editClass(c._i,c.day,c.hour,c.p1,c.p2,c.p3,c.p4)">
+          <ion-icon name="create"></ion-icon>
+        </button>
+        <button ion-button color="danger" (click)="delClass(c._i)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

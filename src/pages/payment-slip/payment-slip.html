@@ -1,0 +1,37 @@
+<!--
+  Generated template for the PaymentSlipPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Boleto Bancário</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <img src="assets/imgs/boleto.png" />
+  </ion-item>
+  <hr>
+  <button ion-button block>Imprimir Pdf</button>
+  <button ion-button block (click)="presentActionSheet()">Compartilhar em Pdf</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+
+      </ion-col>
+      <ion-col>
+        <div>
+          <button ion-button block outline (click)="goHome()">
+            Início
+          </button>
+        </div>
+      </ion-col>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

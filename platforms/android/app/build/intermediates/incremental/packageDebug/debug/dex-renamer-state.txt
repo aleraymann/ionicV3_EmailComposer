@@ -1,0 +1,4 @@
+#Thu Oct 10 15:42:01 BRT 2019
+base.0=/home/aleraymann/Documentos/ionic-workspace/Agenda-emailComposer/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

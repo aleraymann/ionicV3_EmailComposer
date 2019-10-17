@@ -1,0 +1,72 @@
+<!--
+  Generated template for the ClassRegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Nova Turma</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="ClassForm">
+    <ion-list>
+      <h4>Dia</h4>
+      <ion-select interface="popover" formControlName="day" placeholder="Selecione o dia">
+        <ion-option value="monday">Segunda-Feira</ion-option>
+        <ion-option value="tuesday">Terça-Feira</ion-option>
+        <ion-option value="wednesday">Quarta-Feira</ion-option>
+        <ion-option value="thursday">Quinta-Feira</ion-option>
+        <ion-option value="friday">Sexta-Feira</ion-option>
+      </ion-select>
+      <hr>
+      <ion-item>
+        <ion-label >Horário</ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="hour"></ion-datetime>">
+      </ion-item>
+
+      <div>
+        <h4>Pacientes</h4>
+        <ion-item>
+          <ion-select interface="popover" formControlName="p1" placeholder="1º Paciente">
+            <ion-option value="">...</ion-option>
+            <ion-option full *ngFor="let p of Patients" value="{{ p.name }}">
+              {{ p.name }}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select interface="popover" formControlName="p2"  placeholder="2º Paciente" >
+            <ion-option value="">...</ion-option>
+            <ion-option full *ngFor="let p of Patients" value="{{ p.name }}">
+              {{ p.name }}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select interface="popover" formControlName="p3" placeholder="3º Paciente" >
+            <ion-option value="">...</ion-option>
+            <ion-option full *ngFor="let p of Patients" value="{{ p.name }}">
+              {{ p.name }}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select interface="popover"  formControlName="p4" placeholder="4º Paciente" >
+            <ion-option value="">...</ion-option>
+            <ion-option full *ngFor="let p of Patients" value="{{ p.name }}">
+              {{ p.name }}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+
+
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" (click)="save()">Salvar</button>
+    </div>
+  </form>
+</ion-content>

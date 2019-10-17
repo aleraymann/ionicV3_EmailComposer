@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pacientes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-fab top right edge>
+    <button ion-fab mini (click)="goPatientRegister()" color="secondary">
+      <ion-icon name="person-add"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-searchbar (ionInput)="searchPatients($event)"></ion-searchbar>
+  <hr>
+  <div *ngIf="Patients.length > 0; else empty">
+    <ion-list>
+      <ion-item-sliding *ngFor="let p of Patients; let i=index" text-wrap (click)="toggleGroup(i)"
+        [ngClass]="{active: isGroupShown(i)}">
+        <ion-item>
+          <h3>
+            {{ p.name }}
+            <ion-icon item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'">
+            </ion-icon>
+            <ion-icon item-end name="done-all" icon-end [color]="p.payment ==true? 'secondary' : 'light'"> Pago
+            </ion-icon>
+          </h3>
+          <div *ngIf="isGroupShown(i)">Telefone: {{p.phone}}</div>
+          <div *ngIf="isGroupShown(i)">R$: {{p.value_payment}}</div>
+          <div *ngIf="isGroupShown(i)">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div>
+                    <button ion-button icon-start small color="secondary" (click)="payment(p._i,p.name,p.cpf,p.email,p.phone, p.begin,p.value_payment,p.payment)"
+                      [disabled]="p.payment == true">
+                      <ion-icon name="logo-usd"></ion-icon>
+                      Pagar
+                    </button>
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div>
+                    <button ion-button icon-end small (click)="goPaymentSlip()">
+                      Boleto
+                      <ion-icon name="barcode"></ion-icon>
+                    </button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="light"
+            (click)=" editPatient(p._i,p.name,p.cpf,p.email,p.phone, p.begin,p.value_payment,p.payment)">
+            <ion-icon name="create"></ion-icon>
+          </button>
+          <button ion-button color="danger" (click)="delPatient(p._i)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <ng-template #empty>
+    <h5>Você ainda não Cadastrou Pacientes!! </h5>
+  </ng-template>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <button ion-button block outline (click)="goHome()">
+            Início
+          </button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <button ion-button block outline (click)="goFinantial()">
+            Financeiro
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

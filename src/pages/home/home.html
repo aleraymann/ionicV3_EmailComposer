@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h6>Login: {{usuario.email}}
+    <img class="foto" *ngIf="usuario.photoURL !=null" [src]="usuario.photoURL" /></h6>
+  <h2>Agenda Semanal</h2>
+  <br>
+  <button ion-button block (click)="goMonday()">Segunda-Feira</button>
+  <hr>
+  <button ion-button block (click)="goTuesday()">Terça-Feira</button>
+  <hr>
+  <button ion-button block (click)="goWed()">Quarta-Feira</button>
+  <hr>
+  <button ion-button block (click)="goThursday()">Quinta-Feira</button>
+  <hr>
+  <button ion-button block (click)="goFriday()">Sexta-Feira</button>
+  <hr>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div></div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <button ion-button (click)="goReminder()" color="secondary" outline>Lembretes</button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <button ion-button block outline (click)="goPatients()">
+            Pacientes
+          </button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <button ion-button block outline (click)="goFinantial()">
+            Financeiro
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

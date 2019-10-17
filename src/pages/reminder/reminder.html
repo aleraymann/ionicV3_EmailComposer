@@ -1,0 +1,53 @@
+<!--
+  Generated template for the ReminderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Lembretes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="ReminderForm" novalidate>
+    <br>
+    <ion-item>
+      <ion-input type="text" formControlName="reminder" placeholder="..."></ion-input>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div></div>
+        </ion-col>
+        <ion-col>
+          <div></div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <button ion-button icon-start color="secondary" type="submit" (click)="save()" small
+              [disabled]="!ReminderForm.valid">
+              <ion-icon name="add"></ion-icon>
+              Lembrete
+            </button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <hr><br>
+  <ion-list>
+    <ion-card *ngFor="let r of Reminders">
+      <ion-icon name="close-circle" icon-end color="danger" (click)="delReminder(r._i)"></ion-icon>
+      <ion-card-content>
+        {{ r.reminder}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <br><br>
+  <hr>
+
+</ion-content>

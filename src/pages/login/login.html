@@ -1,0 +1,60 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content padding>
+  <img src="assets/imgs/agendapp.png" />
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" #username></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password" #password></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <button ion-button full (click)="logar()">Entrar
+  </button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div></div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <button ion-button small icon-end (click)="logarComGoogle()">
+            Login com
+            <ion-icon name="logo-google"></ion-icon>
+          </button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <button ion-button small (click)="resetPassword()">Esqueci a senha!</button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <button ion-button small (click)="goUserRegister()" outline>Não tenho conta</button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+</ion-content>

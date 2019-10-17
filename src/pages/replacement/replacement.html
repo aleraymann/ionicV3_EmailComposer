@@ -1,0 +1,30 @@
+<!--
+  Generated template for the ReplacementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Reposições</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid no-padding>
+    <ion-row>
+      <ion-col>Paciente</ion-col>
+    </ion-row>
+        <ion-item *ngFor="let p of Patients;" >
+            <ion-label>{{ p.name }}</ion-label>
+            <ion-checkbox (click)="addPatient()"></ion-checkbox>
+          </ion-item>
+      <ion-row>
+        <ion-col></ion-col>
+      </ion-row>
+    <hr>
+  </ion-grid>
+<hr><br>
+<button ion-button block (click)="showAlert()" outline>Limpar Reposições
+  </button>
+</ion-content>
